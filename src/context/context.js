@@ -71,8 +71,8 @@ export function GithubProvier({ children }) {
 
   useEffect(() => {
     // Check rate
-
     checkRequests()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
