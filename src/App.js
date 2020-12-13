@@ -2,23 +2,25 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 // Pages
-import { Dashboard, Login, Error } from './pages'
+import { Dashboard, Login, Error, PrivateRoute, AuthWrapper } from './pages'
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path='/' exact>
-          <Dashboard />
-        </Route>
-        <Route path='/login'>
-          <Login />
-        </Route>
-        <Route path='*'>
-          <Error />
-        </Route>
-      </Switch>
-    </Router>
+    <AuthWrapper>
+      <Router>
+        <Switch>
+          <PrivateRoute path='/' exact>
+            <Dashboard />
+          </PrivateRoute>
+          <Route path='/login'>
+            <Login />
+          </Route>
+          <Route path='*'>
+            <Error />
+          </Route>
+        </Switch>
+      </Router>
+    </AuthWrapper>
   )
 }
 

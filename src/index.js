@@ -3,15 +3,23 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import { Auth0Provider } from '@auth0/auth0-react'
 
 // Context
 import { GithubProvier } from './context/context'
 
 ReactDOM.render(
   <React.StrictMode>
-    <GithubProvier>
-      <App />
-    </GithubProvier>
+    <Auth0Provider
+      domain='dev-94e404vd.us.auth0.com'
+      clientId='MjZDAhtjxFAhm8J6O5GG8hxtxAPDALWN'
+      redirectUri={window.location.origin}
+      cacheLocation='localstorage'
+    >
+      <GithubProvier>
+        <App />
+      </GithubProvier>
+    </Auth0Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )
